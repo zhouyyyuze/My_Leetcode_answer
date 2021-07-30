@@ -56,6 +56,7 @@ class test{
         int[] nums2 = {3,5,6,7,8,9,10,11,14};
         double result = solution.findMedianSortedArrays(nums1, nums2);
         System.out.println(result);
+      
     }
 }
 // @lc code=end
