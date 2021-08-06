@@ -1,6 +1,6 @@
-import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.List;
 /*
  * @lc app=leetcode.cn id=15 lang=java
  *
@@ -50,5 +50,44 @@ class Solution {
     }
 }
 
+
+class my_solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<List<Integer>>();
+        //创建arraylist ans用于存放结果
+        int n = nums.length; //获取数组的长度
+        Arrays.sort(nums); //给数组排序
+        for(int first = 0; first < n ; ++first){
+            if(first > 0 && nums[first] == nums[first-1]){
+                continue;
+            }
+            
+            int third = n - 1;
+            for(int second = first + 1; second < n; ++second){
+                if(second > first+1 && nums[second] == nums[second-1]){
+                    continue;
+                }
+
+                while (second < third && nums[first]+nums[second]+nums[third] > 0){
+                    third--;
+                }
+                
+                if (second == third){
+                    break;
+                }
+
+                if (nums[first]+nums[second]+nums[third] == 0){
+                    List<Integer> list = new ArrayList<Integer>();
+                    list.add(nums[first]);
+                    list.add(nums[second]);
+                    list.add(nums[third]);
+                    ans.add(list);
+                }
+
+            }
+        }
+        return ans;
+    }
+}
 // @lc code=end
 
